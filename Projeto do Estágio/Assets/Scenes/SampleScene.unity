@@ -200,6 +200,7 @@ MonoBehaviour:
   laneSpeed: 10
   jumpLength: 7.5
   jumpHeight: 2
+  slideLength: 7.5
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
