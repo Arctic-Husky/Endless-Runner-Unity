@@ -17,6 +17,11 @@ public class Jogador : MonoBehaviour
     public float jumpLength; // Distância máxima do pulo
     public float jumpHeight; // Altura máxima do pulo
     public float slideLength; // Distância máxima do pulo
+    public int maxlife;
+    public float minSpeed = 10f;
+    public float maxSpeed = 30f;
+    public float invincibleTime;
+    public GameObject model;
 
     private Animator anim;
     private Rigidbody rb; // Variável do tipo Rigidbody
@@ -28,6 +33,10 @@ public class Jogador : MonoBehaviour
     private bool sliding = false;
     private float slideStart;
     private Vector3 boxColliderSize; // Guarda o tamanho inicial do boxCollider
+    private int currentLife;
+    private bool invincible = false;
+    private UIManager uiManager;
+    private int coins;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +45,10 @@ public class Jogador : MonoBehaviour
         anim = GetComponentInChildren<Animator>(); // **
         boxCollider = GetComponent<BoxCollider>(); // **
         boxColliderSize = boxCollider.size; // Pega o tamanho inicial do boxCollider
+        currentLife = 1;
+        speed = minSpeed;
+        uiManager = FindObjectOfType<UIManager>();
+        uiManager.UpdateLives(currentLife);
     }
 
     // Update is called once per frame
@@ -134,5 +147,59 @@ public class Jogador : MonoBehaviour
             boxCollider.size = newSize; // Tamanho do boxCollider é atualizado com o novo valor dentro de newSize
             sliding = true;
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Coin"))
+        {
+            coins++;
+            uiManager.UpdateCoins(coins);
+            other.transform.parent.gameObject.SetActive(false);
+        }
+        if (invincible)
+            return;
+        if(other.CompareTag("Obstacle"))
+        {
+            currentLife--;
+            uiManager.UpdateLives(currentLife);
+            anim.SetTrigger("Hit");
+            speed = 0;
+            if(currentLife <= 0)
+            {
+                //game over
+            }
+            else
+            {
+                StartCoroutine(Blinking(invincibleTime));
+            }
+        }
+    }
+
+    IEnumerator Blinking(float time)
+    {
+        invincible = true;
+        float timer = 0;
+        float currentBlink = 1f;
+        float lastBlink = 0;
+        float blinkPeriod = 0.1f;
+        bool enabled = false;
+        yield return new WaitForSeconds(1f);
+        speed = minSpeed;
+        while(timer < time && invincible)
+        {
+            model.SetActive(enabled);
+            yield return null;
+            timer += Time.deltaTime;
+            lastBlink += Time.deltaTime;
+            if(blinkPeriod < lastBlink)
+            {
+                lastBlink = 0;
+                currentBlink = 1f - currentBlink;
+                enabled = !enabled;
+            }
+        }
+        model.SetActive(true);
+        invincible = false;
     }
 }
