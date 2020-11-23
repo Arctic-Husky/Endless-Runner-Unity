@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     public Image[] lifeSymbols;
     public Text coinText;
+    public GameObject gameOverPanel;
 
     public void UpdateLives(int lives)
     {

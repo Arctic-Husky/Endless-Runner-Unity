@@ -37,6 +37,7 @@ public class Jogador : MonoBehaviour
     private bool invincible = false;
     private UIManager uiManager;
     private int coins;
+    private int spendCoins;
 
     // Start is called before the first frame update
     void Start()
@@ -108,6 +109,17 @@ public class Jogador : MonoBehaviour
                                                                                                                         // Esta linha de código é responsável por pegar a próxima posição do jogador na cena, aonde o jogador quer ir
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, laneSpeed * Time.deltaTime); // Atualiza a posição do jogador para a desejada por meio da transform.position e a MoveTowards, passando para a mesma a nossa posição
                                                                                                                   // atual, nossa posição desejada, e a velocidade para mudar de lane, e utilizando o Time.deltaTime para essa troca não ser dependente dos frames
+        if(spendCoins == 100)
+        {
+            spendCoins = 0;
+            if (currentLife == maxlife)
+                return;
+            else
+            {
+                currentLife++;
+                uiManager.UpdateLives(currentLife);
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -154,6 +166,7 @@ public class Jogador : MonoBehaviour
         if(other.CompareTag("Coin"))
         {
             coins++;
+            spendCoins++;
             uiManager.UpdateCoins(coins);
             other.transform.parent.gameObject.SetActive(false);
         }
@@ -167,7 +180,10 @@ public class Jogador : MonoBehaviour
             speed = 0;
             if(currentLife <= 0)
             {
-                //game over
+                speed = 0;
+                anim.SetBool("Dead", true);
+                uiManager.gameOverPanel.SetActive(true);
+                Invoke("CallMenu", 2f);
             }
             else
             {
@@ -201,5 +217,10 @@ public class Jogador : MonoBehaviour
         }
         model.SetActive(true);
         invincible = false;
+    }
+
+    void CallMenu()
+    {
+        GameManager.gm.EndRun();
     }
 }

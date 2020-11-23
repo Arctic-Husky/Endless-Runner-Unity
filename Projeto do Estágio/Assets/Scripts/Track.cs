@@ -42,24 +42,25 @@ public class Track : MonoBehaviour
             float posZMax = (114.3f / newObstacles.Count) + (114.3f / newObstacles.Count) * i + 1;
             newObstacles[i].transform.localPosition = new Vector3(0, 0, Random.Range(posZMin, posZMax));
             newObstacles[i].SetActive(true);
+            if (newObstacles[i].GetComponent<ChangeLane>() != null)
+                newObstacles[i].GetComponent<ChangeLane>().PositionLane();
         }
     }
     void PositionateCoins()
     {
         float minZPos = 10f;
-        float maxZPos;
-        float randomZPos;
         for (int i = 0; i < newCoins.Count; i++)
         {
-            maxZPos = minZPos + 5f;
-            randomZPos = Random.Range(minZPos, maxZPos);
+            float maxZPos = minZPos + 5f;
+            float randomZPos = Random.Range(minZPos, maxZPos);
             newCoins[i].transform.localPosition = new Vector3(transform.position.x, transform.position.y, randomZPos);
             newCoins[i].SetActive(true);
+            newCoins[i].GetComponent<ChangeLane>().PositionLane();
             minZPos = randomZPos + 1;
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) // Localização do trigger
     {
         if(other.CompareTag("Player"))
         {
