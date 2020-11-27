@@ -482,7 +482,7 @@ Transform:
   m_Children:
   - {fileID: 2028933374}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &356882135
 MonoBehaviour:
@@ -551,7 +551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 400ca6311d5459244a1af9dea192449c, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 400ca6311d5459244a1af9dea192449c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -624,7 +624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 00feec2b5f6590f4aaf6ec2cccdec84e, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 00feec2b5f6590f4aaf6ec2cccdec84e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1319,7 +1319,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!4 &728896720 stripped
 Transform:
@@ -1553,6 +1553,7 @@ RectTransform:
   - {fileID: 556411392}
   - {fileID: 2127086833}
   - {fileID: 1550347528}
+  - {fileID: 2025512551}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1579,6 +1580,7 @@ MonoBehaviour:
   - {fileID: 626173025}
   coinText: {fileID: 1270717881}
   gameOverPanel: {fileID: 2127086832}
+  scoreText: {fileID: 2025512552}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1855,7 +1857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 424106, guid: 2ac7f74c7d519ad44a819e9e78834688, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 424106, guid: 2ac7f74c7d519ad44a819e9e78834688, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2084,7 +2086,7 @@ MonoBehaviour:
   - {fileID: 1960878858}
   numberOfObstacles: {x: 5, y: 5}
   coin: {fileID: 3695332602193385080, guid: fc81ae834963a374883c30b5b26225b6, type: 3}
-  numberOfCoins: {x: 35, y: 35}
+  numberOfCoins: {x: 20, y: 25}
   newObstacles: []
   newCoins: []
 --- !u!65 &1136672318
@@ -2351,7 +2353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 125, y: -80}
+  m_AnchoredPosition: {x: 78, y: -80}
   m_SizeDelta: {x: 280.07568, y: 220.11993}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1270717881
@@ -3237,7 +3239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 474218, guid: 51ded5b93fd32a44a80d6b79ae6b9c0b, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 474218, guid: 51ded5b93fd32a44a80d6b79ae6b9c0b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3590,6 +3592,84 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 905e121def2d7f44fac07f3e9d083c00, type: 3}
+--- !u!1 &2025512550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2025512551}
+  - component: {fileID: 2025512553}
+  - component: {fileID: 2025512552}
+  m_Layer: 5
+  m_Name: ScoreText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2025512551
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025512550}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 881349529}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -456, y: 233}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2025512552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025512550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 35
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "Pontua\xE7\xE3o: 0"
+--- !u!222 &2025512553
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025512550}
+  m_CullTransparentMesh: 0
 --- !u!1001 &2028933373
 PrefabInstance:
   m_ObjectHideFlags: 0

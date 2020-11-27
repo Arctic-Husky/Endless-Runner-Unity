@@ -38,6 +38,7 @@ public class Jogador : MonoBehaviour
     private UIManager uiManager;
     private int coins;
     private int spendCoins;
+    private float score;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +56,9 @@ public class Jogador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        score += Time.deltaTime * speed;
+        uiManager.UpdateScore((int)score);
+
         if (Input.GetKeyDown(KeyCode.LeftArrow)) // Se pressionar a seta da esquerda
         {
             ChangeLane(-1); // Chamada da função ChangeLane(-1);, onde o -1 é o parâmetro que representa a direção aonde o jogador deseja se movimentar, que neste caso é para a esquerda
@@ -79,7 +83,7 @@ public class Jogador : MonoBehaviour
             {
                 jumping = false;
                 anim.SetBool("Jumping", false);
-            }
+            }                                                               // Essa parte do código é responsável para garantir que com o aumento da velocidade o jogador esteja no ar por mais tempo
             else
             {
                 verticalTargetPosition.y = Mathf.Sin(ratio * Mathf.PI) * jumpHeight; // Fórmula que controla a altura em relação ao chão do jogador durante o pulo
@@ -96,7 +100,7 @@ public class Jogador : MonoBehaviour
 
         if (sliding)
         {
-            float ratio = (transform.position.z - slideStart) / slideLength;
+            float ratio = (transform.position.z - slideStart) / slideLength; // Controla o quão longo o slide vai ser, funciona que nem o pulo, tendo a mesma longevidade independente da velocidade
             if(ratio >= 1f)
             {
                 sliding = false;
@@ -151,7 +155,7 @@ public class Jogador : MonoBehaviour
     {
         if(!sliding && !jumping)
         {
-            slideStart = transform.position.z;
+            slideStart = transform.position.z; // Posição do personagem ao começatr o slide
             anim.SetFloat("JumpSpeed", speed / slideLength);
             anim.SetBool("Sliding", true);
             Vector3 newSize = boxCollider.size; // Variável  do tipo Vector3 que recebe o tamanho do boxCollider
@@ -222,5 +226,12 @@ public class Jogador : MonoBehaviour
     void CallMenu()
     {
         GameManager.gm.EndRun();
+    }
+
+    public void IncreaseSpeed()
+    {
+        speed *= 1.15f;
+        if (speed >= maxSpeed)
+            speed = maxSpeed;
     }
 }
