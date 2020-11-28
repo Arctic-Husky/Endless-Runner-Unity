@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 65771951684338914}
   m_Layer: 0
   m_Name: Mug
-  m_TagString: Coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

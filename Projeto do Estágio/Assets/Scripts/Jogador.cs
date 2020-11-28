@@ -125,6 +125,7 @@ public class Jogador : MonoBehaviour
             else
             {
                 currentLife++;
+                FindObjectOfType<AudioManager>().Play("1up");
                 uiManager.UpdateLives(currentLife);
             }
         }
