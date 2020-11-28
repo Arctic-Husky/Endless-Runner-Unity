@@ -53,12 +53,11 @@ public class Track : MonoBehaviour
         {
             float maxZPos = minZPos + 5f;
             float randomZPos = Random.Range(minZPos, maxZPos);
-            if (randomZPos >= 130.3f) // Posição do trigger da pista
-                return;
+            
             newCoins[i].transform.localPosition = new Vector3(transform.position.x, transform.position.y, randomZPos);
             newCoins[i].SetActive(true);
             newCoins[i].GetComponent<ChangeLane>().PositionLane();
-            minZPos = randomZPos + 1;
+            minZPos = randomZPos + 1; // Evitar que uma moeda nasça em cima de outra
         }
     }
 

@@ -18,6 +18,7 @@ public class Jogador : MonoBehaviour
     public float jumpHeight; // Altura máxima do pulo
     public float slideLength; // Distância máxima do pulo
     public int maxlife;
+    public int startingLife;
     public float minSpeed = 10f;
     public float maxSpeed = 30f;
     public float invincibleTime;
@@ -39,6 +40,7 @@ public class Jogador : MonoBehaviour
     private int coins;
     private int spendCoins;
     private float score;
+    private bool hurt;
 
     // Start is called before the first frame update
     void Start()
@@ -47,10 +49,12 @@ public class Jogador : MonoBehaviour
         anim = GetComponentInChildren<Animator>(); // **
         boxCollider = GetComponent<BoxCollider>(); // **
         boxColliderSize = boxCollider.size; // Pega o tamanho inicial do boxCollider
-        currentLife = 1;
+        currentLife = startingLife;
         speed = minSpeed;
+        hurt = false;
         uiManager = FindObjectOfType<UIManager>();
         uiManager.UpdateLives(currentLife);
+        FindObjectOfType<AudioManager>().Play("midgame");
     }
 
     // Update is called once per frame
@@ -59,19 +63,19 @@ public class Jogador : MonoBehaviour
         score += Time.deltaTime * speed;
         uiManager.UpdateScore((int)score);
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) // Se pressionar a seta da esquerda
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && hurt == false) // Se pressionar a seta da esquerda
         {
             ChangeLane(-1); // Chamada da função ChangeLane(-1);, onde o -1 é o parâmetro que representa a direção aonde o jogador deseja se movimentar, que neste caso é para a esquerda
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow)) // Se pressionar a seta da direita
+        else if (Input.GetKeyDown(KeyCode.RightArrow) && hurt == false) // Se pressionar a seta da direita
         {
             ChangeLane(1); // **
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        else if (Input.GetKeyDown(KeyCode.UpArrow) && hurt == false)
         {
             Jump();
         }
-        else if(Input.GetKeyDown(KeyCode.DownArrow))
+        else if(Input.GetKeyDown(KeyCode.DownArrow) && hurt == false)
         {
             Slide();
         }
@@ -113,7 +117,7 @@ public class Jogador : MonoBehaviour
                                                                                                                         // Esta linha de código é responsável por pegar a próxima posição do jogador na cena, aonde o jogador quer ir
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, laneSpeed * Time.deltaTime); // Atualiza a posição do jogador para a desejada por meio da transform.position e a MoveTowards, passando para a mesma a nossa posição
                                                                                                                   // atual, nossa posição desejada, e a velocidade para mudar de lane, e utilizando o Time.deltaTime para essa troca não ser dependente dos frames
-        if(spendCoins == 100)
+        if(spendCoins == 150)
         {
             spendCoins = 0;
             if (currentLife == maxlife)
@@ -178,19 +182,25 @@ public class Jogador : MonoBehaviour
             return;
         if(other.CompareTag("Obstacle"))
         {
+            FindObjectOfType<AudioManager>().Stop("midgame");
             currentLife--;
             uiManager.UpdateLives(currentLife);
             anim.SetTrigger("Hit");
             speed = 0;
             if(currentLife <= 0)
             {
+                hurt = true;
                 speed = 0;
                 anim.SetBool("Dead", true);
+                FindObjectOfType<AudioManager>().Play("gameover");
                 uiManager.gameOverPanel.SetActive(true);
-                Invoke("CallMenu", 2f);
+                Invoke("CallMenu", 5f);
             }
             else
             {
+                FindObjectOfType<AudioManager>().Play("damage");
+                FindObjectOfType<AudioManager>().PlayDelayed("midgame");
+                //FindObjectOfType<AudioManager>().Play("Music2");
                 StartCoroutine(Blinking(invincibleTime));
             }
         }
@@ -199,12 +209,14 @@ public class Jogador : MonoBehaviour
     IEnumerator Blinking(float time)
     {
         invincible = true;
+        hurt = true;
         float timer = 0;
         float currentBlink = 1f;
         float lastBlink = 0;
         float blinkPeriod = 0.1f;
         bool enabled = false;
         yield return new WaitForSeconds(1f);
+        hurt = false;
         speed = minSpeed;
         while(timer < time && invincible)
         {
@@ -230,7 +242,7 @@ public class Jogador : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        speed *= 1.15f;
+        speed *= 1.05f;
         if (speed >= maxSpeed)
             speed = maxSpeed;
     }
