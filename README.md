@@ -1,8 +1,8 @@
 # Endless-Runner-Unity
 An Endless Runner game made in Unity and written in C#
 
-Version: 1.1.1
-Google Drive: <a href="https://drive.google.com/file/d/1GEVstobnQJjDyUYkIH_653mBEKeTIyQK/view?usp=sharing">Click here!</a>
+Version: 1.1.1<br>
+Google Drive: <a href="https://drive.google.com/file/d/1GEVstobnQJjDyUYkIH_653mBEKeTIyQK/view?usp=sharing">download</a>
 
 <h1>Manual:</h1>
 <h3>Como jogar (How to play):</h3><br>
