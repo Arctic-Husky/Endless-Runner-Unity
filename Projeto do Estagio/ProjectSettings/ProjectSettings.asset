@@ -666,10 +666,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: b8b51780-8b8d-4c39-ada7-aab5f79c59ab
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: Corrida Maluca
+  organizationId: arctic_husky
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
