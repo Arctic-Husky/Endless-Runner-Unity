@@ -32,4 +32,4 @@ Version: 1.0
 <h3>Efeitos Sonoros (Sound effects):</h3> <br>
 	+Vida –> Eu mesmo (+Life -> Myself)<br>
 <h3>Imagens (Images):</h3><br>
-	Logo “Corrida Maluca” <br>
+	Logo “Corrida Maluca” –> Gabriel de Lemos Gomes <br>
