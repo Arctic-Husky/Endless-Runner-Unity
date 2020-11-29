@@ -27,8 +27,8 @@ Version: 1.0
 <h3>Coletáveis (Collectables):</h3><br>
 	YGS Mugs –> YGS Assets<br>
 <h3>Músicas (Musics):</h3><br>
-	Jogo –> “Dance”,<a href="https://www.bensound.com">bensound.com</a><br>
-	Menu –> “Do It” – Eric Matyas,<a href="https://soundimage.org">soundimage.org</a><br>
+	Jogo –> “Dance”,<a href="https://www.bensound.com"> bensound.com</a><br>
+	Menu –> “Do It” – Eric Matyas,<a href="https://soundimage.org"> soundimage.org</a><br>
 <h3>Efeitos Sonoros (Sound effects):</h3> <br>
 	+Vida –> Eu mesmo (+Life -> Myself)<br>
 <h3>Imagens (Images):</h3><br>
