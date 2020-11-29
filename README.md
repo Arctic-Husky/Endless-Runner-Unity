@@ -30,6 +30,6 @@ Version: 1.0
 	Jogo –> “Dance”, https://www.bensound.com<br>
 	Menu –> “Do It” – Eric Matyas, https://soundimage.org/<br>
 <h3>Efeitos Sonoros (Sound effects):</h3> <br>
-	+Vida –> Eu mesmo<br>
+	+Vida –> Eu mesmo (+Life -> Myself)<br>
 <h3>Imagens (Images):</h3><br>
 	Logo “Corrida Maluca” <br>
