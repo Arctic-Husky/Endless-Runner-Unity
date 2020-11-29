@@ -29,6 +29,6 @@ public class UIManager : MonoBehaviour
     }
     public void UpdateScore(int score)
     {
-        scoreText.text = "Pontuação: " + score + "m";
+        scoreText.text = score + "m";
     }
 }
