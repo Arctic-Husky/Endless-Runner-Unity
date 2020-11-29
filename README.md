@@ -17,9 +17,9 @@ Version: 1.0
 
 <h1>Assets:</h1> 
 <h3>Personagens jogáveis (Playable characters):</h3> <br>
-	Amy (CH46_NONPBR) –> Mixamo.com<br>
+	Amy (CH46_NONPBR) –><a href="https://www.mixamo.com/#/"> Mixamo.com</a><br>
 <h3>Animações (Animations):</h3><br>
-	Mixamo.com<br>
+	<a href="https://www.mixamo.com/#/">Mixamo.com</a><br>
 <h3>Mapa (Map):</h3><br>
 	Grass Road Race –> Sugar Asset<br>
 <h3>Skybox:</h3><br>
@@ -27,8 +27,8 @@ Version: 1.0
 <h3>Coletáveis (Collectables):</h3><br>
 	YGS Mugs –> YGS Assets<br>
 <h3>Músicas (Musics):</h3><br>
-	Jogo –> “Dance”, https://www.bensound.com<br>
-	Menu –> “Do It” – Eric Matyas, https://soundimage.org/<br>
+	Jogo –> “Dance”,<a href="https://www.bensound.com"> bensound.com</a><br>
+	Menu –> “Do It” – Eric Matyas,<a href="https://soundimage.org"> https://soundimage.org/</a><br>
 <h3>Efeitos Sonoros (Sound effects):</h3> <br>
 	+Vida –> Eu mesmo (+Life -> Myself)<br>
 <h3>Imagens (Images):</h3><br>
